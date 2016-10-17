@@ -7,5 +7,5 @@ namespace PharmacyLocator\Repository;
  * @author jfalkenstein
  */
 interface IPharmacyRepo {
-    public function getNearestPharmacy($latitude, $longitude);
+    public function getNearestPharmacy($latitude, $longitude) : PharmacyInfo;
 }
