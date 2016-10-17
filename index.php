@@ -3,10 +3,9 @@
 use PharmacyLocator\Bootstrapper\Bootstrapper;
 
 ob_start();
-const DS = DIRECTORY_SEPARATOR;
 const ROOT = __DIR__;
 
-require 'vendor' . DS . 'autoload.php';
+require ROOT . 'vendor/autoload.php';
 
 spl_autoload_register(function($className){
     /*Removes any '\' from left side of URL string*/
@@ -17,15 +16,7 @@ spl_autoload_register(function($className){
     $namespace = substr($className, 0,$lastNsPos);
     /*Returns only the last part of the URL.*/
     $className = substr($className, $lastNsPos + 1);
-    $fileName = ROOT . 
-                DS . 
-                /*Replaces a '/' or '\' with the appropriate slash for environment.
-                 * This is a key part of why this function is required
-                 */ 
-                str_replace('\\', DS, $namespace) . 
-                DS .
-                $className . 
-                ".php";
+    $fileName = implode('/', [ROOT, str_replace('\\', DS, $namespace), $className, '.php']);
     if(file_exists($fileName)){
         require $fileName;
     }else{
