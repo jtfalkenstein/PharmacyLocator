@@ -3,7 +3,8 @@
 return [
     'repository' => [
         'sqlite' => [
-            'path' => ROOT . '/pharmacies.db'
+            'path' => implode(DS, [ROOT,'pharmacies.db']),
+            'query' => file_get_contents(implode(DS, [ROOT, 'sql', 'distanceQuery.sql']))
         ]
     ]
 ];
