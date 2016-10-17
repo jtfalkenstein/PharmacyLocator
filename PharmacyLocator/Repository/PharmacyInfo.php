@@ -3,7 +3,7 @@
 namespace PharmacyLocator\Repository;
 
 /**
- * Description of PharmacyInfo
+ * The central storage class for information about a pharmacy.
  *
  * @author jfalkenstein
  */

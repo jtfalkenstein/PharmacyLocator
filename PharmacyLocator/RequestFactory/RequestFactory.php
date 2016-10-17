@@ -5,7 +5,10 @@ namespace PharmacyLocator\RequestFactory;
 use PharmacyLocator\Exceptions\InvalidInputException;
 
 /**
- * Description of RequestFactory
+ * Packages the latitude and longitude query string parameters into
+ * a new Request object. The input is filtered and validated using
+ * PHP's filter_input function to avoid sql injection and guarantee
+ * we are dealing with a floating point number.
  *
  * @author jfalkenstein
  */

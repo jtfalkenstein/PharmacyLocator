@@ -3,7 +3,8 @@
 namespace PharmacyLocator\RequestFactory;
 
 /**
- * Description of Request
+ * The central container of latitude and longitude derrived from
+ * the query string parameters.
  *
  * @author jfalkenstein
  */

@@ -3,7 +3,7 @@
 namespace PharmacyLocator\Exceptions;
 
 /**
- * Description of PharmLocatorException
+ * This is the base class for all internally thrown exceptions. It will allow 
  *
  * @author jfalkenstein
  */

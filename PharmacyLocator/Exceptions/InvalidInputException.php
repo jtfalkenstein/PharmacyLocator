@@ -3,7 +3,7 @@
 namespace PharmacyLocator\Exceptions;
 
 /**
- * Description of InvalidInputException
+ * Indicates either the latitude or longitude were invalid floating point numbers.
  *
  * @author jfalkenstein
  */

@@ -3,7 +3,7 @@
 namespace PharmacyLocator\Repository;
 
 /**
- *
+ * This is the centralized repository for pharmacy data access
  * @author jfalkenstein
  */
 interface IPharmacyRepo {

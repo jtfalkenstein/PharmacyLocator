@@ -3,7 +3,7 @@
 namespace PharmacyLocator\ConfigManager;
 
 /**
- *
+ * Provides centralized access to the application's configurations.
  * @author jfalkenstein
  */
 interface IConfigManager {
