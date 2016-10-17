@@ -1,0 +1,13 @@
+{
+    "name": "vendor/pharmacy-locator",
+    "description": "Description of project PharmacyLocator.",
+    "authors": [
+        {
+            "name": "jfalkenstein",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "php-di/php-di": "5.4.0"
+    }
+}
