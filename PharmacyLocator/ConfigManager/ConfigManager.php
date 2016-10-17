@@ -24,7 +24,7 @@ namespace PharmacyLocator\ConfigManager;
  *
  * @author jtfalkenstein
  */
-class ConfigManager {
+class ConfigManager implements IConfigManager {
     private $configArray;
     
     public function __construct() {
