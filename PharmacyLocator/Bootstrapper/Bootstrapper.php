@@ -15,9 +15,14 @@ use const ROOT;
  */
 class Bootstrapper {
     public static function boot(){
-        $container = $this->getDIContainer();
-        $app = $container->get(Application::class);
-        $app->run();
+        //Global exception handler
+        try{
+            $container = $this->getDIContainer();
+            $app = $container->get(Application::class);
+            $app->run();
+        } catch (Exception $ex) {
+            //Do something about it here...
+        }
     }
     
     
