@@ -25,7 +25,6 @@ class Application {
         $this->serializer = $serializer;
     }
     
-    
     public function run(){
         //Wrap entire process in global exception handler
         try{
@@ -37,26 +36,15 @@ class Application {
             $response = $this->serializer->package($pharmInfo);
             //4. Echo it out as the response
             echo $response;
-        } catch (Exception $ex) {
-            $except;
-            /* Any exceptions intentionally thrown from within this application
-             * will extend PharmacyLocatorException. In this global exception handler,
-             * any exceptions encountered that are NOT intentionally thrown by the 
-             * application will not be serialized, to avoid any sensitive data
-             * being leaked out.
-             */
-            
-            if(is_a($ex, PharmacyLocatorException::class)){
-                $except = $ex;
-            }else{
-                $except = new PharmacyLocatorException(
-                    "An exception was encountered when attempting to process your request.",
-                    null,
-                    $ex
-                );    
-            }
-            $response = $this->serializer->packageException($except);
-            echo $response;
+        } catch (PharmacyLocatorException $ex) {
+            echo $this->serializer->packageException($ex);
+        } catch (\Exception $ex) {            
+            $except = new PharmacyLocatorException(
+                "An exception was encountered when attempting to process your request.",
+                null,
+                $ex
+            );    
+            echo $this->serializer->packageException($except);
         }
     }
 }
