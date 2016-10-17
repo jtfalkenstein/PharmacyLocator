@@ -36,8 +36,14 @@ class Application {
             $response = $this->serializer->package($pharmInfo);
             //4. Echo it out as the response
             echo $response;
+        
+        //If an exception is caught that was intentionally thrown, serialize and
+        //echo it
         } catch (PharmacyLocatorException $ex) {
             echo $this->serializer->packageException($ex);
+        
+        //Otherwise, hide the exception behind a PharmacyLocatorException to
+        //prevent any exception info from leaking out.
         } catch (\Exception $ex) {            
             $except = new PharmacyLocatorException(
                 "An exception was encountered when attempting to process your request.",
