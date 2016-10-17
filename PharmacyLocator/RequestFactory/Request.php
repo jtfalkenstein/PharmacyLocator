@@ -1,6 +1,6 @@
 <?php
 
-namespace PharmacyLocator\Request;
+namespace PharmacyLocator\RequestFactory;
 
 /**
  * Description of Request
@@ -8,7 +8,7 @@ namespace PharmacyLocator\Request;
  * @author jfalkenstein
  */
 class Request {
-    public function __construct(float $latitude, float $longitude) {
+    public function __construct($latitude, $longitude) {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
     }
