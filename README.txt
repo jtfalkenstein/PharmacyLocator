@@ -29,7 +29,7 @@ leak any sensitive information.
 
 -- Technologies used: --
 *SqLite for database. I chose this as it's easily distributable and the size of the
-dataset was very small. It is access
+dataset was very small. It is accessed using php's PDO library.
 
 *PHP-DI for dependency injection. It is installed via Composer. I chose this because
 I wanted to decouple the application in the areas where it counted, specifically
@@ -39,7 +39,18 @@ to swap out the single SqlitePharmacyRepo class with a different class that impl
 IPharmacyRepo (say, one that uses MySql), and everything would still work. The only
 change needed would be a change in mapping in the definition file.
 
+-- How has it been secured? --
+*There is a global exception handler in the application class that prevents unhandled
+exceptions from bubbling up and being reported to the user. Of course, PHP usually 
+suppresses exceptions being reported in production environments, but I took the extra
+step of ensuring that only desired information is reported to the user.
 
+*Input parameters from the query string are sanitized and validated as floating 
+point numbers. This is done using PHP's input filtering functions. If they are not
+validated, an exception is thrown and reported in the response.
+
+*DB access is accomplished using PHP's PDO library in a way that prevents SQL 
+injection of the query string parameters.
 
 --Necessary configuration: --
 *There is a config file (config/config.php) that provides some basic configuration
