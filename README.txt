@@ -23,6 +23,10 @@ following properties: name, address, city, state, and distance. Distance is the
 distance "as the crow flies" in miles from the base coordinates, rounded to the nearest
 tenth of a mile.
 
+If the status is "exception," there will also be an "exceptionMessage" property 
+that will provide some further indication of the problem. It will NOT, however,
+leak any sensitive information. 
+
 -- Technologies used: --
 *SqLite for database. I chose this as it's easily distributable and the size of the
 dataset was very small. It is access
@@ -48,7 +52,7 @@ specific interfaces with implementations.
 from scratch using the included sql script (sql/install-pharmacies.sql).
 
 -- System Requirements --
-* PHP 7.0 with the sqlite module enabled.
+* PHP 7.0^ with the sqlite module enabled.
 
 While this project uses Composer to manage the dependency on PHP-DI, all necessary
 files have been included in this package.
