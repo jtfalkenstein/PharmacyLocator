@@ -38,7 +38,7 @@ leak any sensitive information.
 dataset was very small. It is accessed using php's PDO library.
 *   PHP-DI for dependency injection. It is installed via Composer. I chose this because
 I wanted to decouple the application in the areas where it counted, specifically
-in the way configurations, database access, and output serialization is used.
+in the way configurations, database access, and output serialization are used.
 Even though I chose SqLite for this particular application, it would be very possible
 to swap out the single SqlitePharmacyRepo class with a different class that implements
 IPharmacyRepo (say, one that uses MySql), and everything would still work. The only
